@@ -2,16 +2,22 @@
 
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>All Meetups</title>
-    <link rel="stylesheet" href="{%  static 'meetups/styles/base.css' %}">
-</head>
-<body>
-    <h1>All Meetups!</h1>
-    <p>Hello World!</p>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>All Meetups</title>
+        <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
+    </head>
+    <body>
+        <h1>All Meetups!</h1>
+        <p>Hello World!</p>
+        {% if show_meetups %}
+            <h2>{{ meetups.0.title }}</h2>
+            <h2>{{ meetups.1.title }}</h2>
+        {% else %}
+            <p>No meetups to display!</p>
+        {% endif %}
+    </body>
 </html>
