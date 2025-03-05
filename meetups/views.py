@@ -4,7 +4,27 @@ from django.shortcuts import render
 
 
 def index(request):
-    meetups = [{"title": "A First Meetup"}, {"title": "A Second Meetup"}]
+    meetups = [
+        {
+            "title": "A First Meetup",
+            "location": "Happy Avenue 34",
+            "slug": "a-firs-meetup",
+        },
+        {
+            "title": "A Second Meetup",
+            "location": "Sad Avenue 35",
+            "slug": "a-second-meetup",
+        },
+    ]
     return render(
         request, "meetups/index.html", {"show_meetups": True, "meetups": meetups}
     )
+
+
+def meetup_details(request, meetup_slug):
+    print(meetup_slug)
+    selected_meetup = {
+        "title": "A First Meetup",
+        "description": "This is the first meetup!",
+    }
+    return render(request, "meetups/meetup-details.html", {"meetup": selected_meetup})
