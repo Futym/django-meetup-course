@@ -9,16 +9,38 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>All Meetups</title>
         <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
+        <link rel="stylesheet" href="{% static 'meetups/styles/all-meetups.css' %}">
     </head>
     <body>
-        <h1>All Meetups!</h1>
-        <p>Hello World!</p>
-        {% if show_meetups %}
-            {% for meetup_item in meetups %}
-                <h2>{{ meetup_item.title }}</h2>
-            {% endfor %}
-        {% else %}
-            <p>No meetups to display!</p>
-        {% endif %}
+        <header id="main-header">
+            <nav><a href="/meetups" id="main-logo">MyMeetups</a></nav>
+            <h2>We got great meetups coming up!</h2>
+            <p>Find the one that best suits your needs!</p>
+        </header>
+        <main>
+            <section>
+                <h2>Upcoming Meetups</h2>
+                <ol>
+                    {% for meetup_item in meetups %}
+                        <li class="meetup-item">
+                            <article>
+                                <div class="meetup-summary">
+                                    <div class="meetup-image">
+                                        <img src="" alt="Meetup Image">
+                                    </div>
+                                    <div class="meetup-details">
+                                        <h3>{{ meetup_item.title }}</h3>
+                                        <address>{{ meetup_item.location }}</address>
+                                    </div>
+                                </div>
+                                <div class="meetup-actions">
+                                    <a href="" class="btn">More Details</a>
+                                </div>
+                            </article>
+                        </li>
+                    {% endfor %}
+                </ol>
+            </section>
+        </main>
     </body>
 </html>
