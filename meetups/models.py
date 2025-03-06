@@ -11,6 +11,13 @@ class Location(models.Model):
         return f"{self.name} ({self.address})"
 
 
+class Participant(models.Model):
+    email = models.EmailField(unique=True)
+
+    def __str__(self):
+        return self.email
+
+
 class Meetup(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
@@ -19,6 +26,9 @@ class Meetup(models.Model):
     location = models.ForeignKey(
         Location, on_delete=models.CASCADE
     )  # what will happen if a location is deleted?
+    participants = models.ManyToManyField(Participant, blank=True)
+    organizer_email = models.EmailField()
+    meetup_date = models.DateField()
 
     def __str__(self):
         return f"{self.title} - {self.slug}"
