@@ -10,6 +10,7 @@
     <section id="confirmation">
         <h2>Thank you for registering!</h2>
         <p>You have successfully registered for the meetup. We are looking forward to seeing you there!</p>
+        <p>Have more questions? Please <a href="mailto:{{ organizer_email }}">contact the organizer</a></p>
         <a href="{% url 'all-meetups' %}" class="btn">Go back to the main page</a>
     </section>
 {% endblock %}
